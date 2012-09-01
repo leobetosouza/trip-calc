@@ -2,7 +2,7 @@
 // The code below uses require.js, a module system for javscript:
 // http://requirejs.org/docs/api.html#define
 
-require.config({ 
+require.config({
     baseUrl: 'js/lib',
     paths: {'jquery':
             ['//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min',
@@ -37,14 +37,46 @@ define("app", function(require) {
 
 
     // START HERE: Put your js code here
+    var pageActive = 0, // 0 preview, 1 add, 2 config
+        pageEl = $('.page'),
+        pageElActive,
+        heightWindow = $(window).height();
 
+    function changeActivePage (page) {
 
+      pageEl.removeClass('activePage');
 
+      if (page == 0) {
+        pageElActive = $('.preview');
+      } else if (page == 1) {
+        pageElActive = $('.add');
+      } else {
+        pageElActive = $('.config');
+      }
 
+      pageElActive.addClass('activePage');
+
+    }
+
+    function movePage (page) {
+
+      if (page == pageActive) {
+        return false;
+      }
+
+      pageActive = page;
+
+      $('body').animate({
+        scrollTop: (pageActive * heightWindow)
+      }, 400)
+    }
+
+    // expondo a função no window só pra brincar no console
+    window.movePage = movePage;
 
     // Hook up the installation button, feel free to customize how
     // this works
-    
+
     var install = require('install');
 
     function updateInstallButton() {
@@ -60,7 +92,9 @@ define("app", function(require) {
     }
 
     $(function() {
-        $('.install-btn').click(install);        
+        $('.install-btn').click(install);
+        pageEl.css({ 'height': heightWindow });
+        movePage(pageActive);
     });
 
     install.on('change', updateInstallButton);
@@ -74,7 +108,7 @@ define("app", function(require) {
         // Feel free to customize this
         var msg = $('.install-ios-msg');
         msg.show();
-        
+
         setTimeout(function() {
             msg.hide();
         }, 8000);

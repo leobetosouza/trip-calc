@@ -6,3 +6,18 @@
 /* @import "bootstrap-responsive.css"; */
 
 /* Your styles here */
+body {
+  position: relative;
+  background: #f1f1f1;
+  overflow: hidden;
+  padding: 0;
+  margin: 0
+}
+.page {
+  width:  100%;
+  min-height: 100%;
+  outline: 1px solid #333
+}
+.add { background: #f00; }
+.config { background: #0f0; }
+.preview { background: #00f; }
