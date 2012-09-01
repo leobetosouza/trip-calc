@@ -124,3 +124,8 @@ nav li {
   border: none;
   padding: 3% 0;
 }
+.icos a {
+  color: #000;
+  font-size: 18px;
+  text-decoration: none;
+}
