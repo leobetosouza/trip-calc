@@ -53,9 +53,8 @@ define("app", function(require) {
       } else {
         pageElActive = $('.config');
       }
-
+      
       pageElActive.addClass('activePage');
-
     }
 
     function movePage (page) {
@@ -73,6 +72,34 @@ define("app", function(require) {
 
     // expondo a função no window só pra brincar no console
     window.movePage = movePage;
+
+    var Currency = {
+      //Rates are USD based
+      rates: null,
+
+      init: function(cb) {
+          if (Currency.rates !== null) {
+            cb();
+            return;
+          }
+
+          $.getJSON(
+              "http://openexchangerates.org/latest.json",
+              function(data) {
+                  Currency.rates = data.rates;
+                  if (cb !== undefined) {
+                    cb();
+                  }
+              }
+          );
+      },
+
+      getRate: function(value, currencyFrom, currencyTo) {
+          var dollarValue = value / Currency.rates[currencyFrom];
+          var toValue = dollarValue * Currency.rates[currencyTo];
+          return toValue;
+      }
+    };
 
     // Hook up the installation button, feel free to customize how
     // this works
