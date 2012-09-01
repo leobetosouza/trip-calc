@@ -21,3 +21,5 @@ body {
 .add { background: #f00; }
 .config { background: #0f0; }
 .preview { background: #00f; }
+/*.controls { background: black; height: 50px; width: 100%; position: fixed; }
+.totalPrice { background: yellow; height: 50px; width: 100%; }*/

@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		* {
+			margin: 0px;
+			padding: 0px;
+			border: none;
+			list-style: none;
+		}
+		section:after, div:after, ul:after, li:after {content:"";height:0;display:block; overflow: hidden;font-size:0;clear:both;}
+
+		body {
+			font: 10px/1.2em "Helvetica", Arial, sans-serif;
+			color: #fff;
+		}
+
+		header {
+			background: #a2c35c;
+  			background-image: -webkit-linear-gradient(top, #a2c35c, #8aae3c);
+  			background-image:    -moz-linear-gradient(top, #a2c35c, #8aae3c);
+  			background-image:      -o-linear-gradient(top, #a2c35c, #8aae3c);
+  			background-image:         linear-gradient(to bottom, #a2c35c, #8aae3c);
+
+			text-align: center;
+			padding: 2% 0;
+			font-size: 2em;
+			color:#fff;
+			box-shadow: 0 2px 1px 0 rgba(0,0,0,.2);
+			text-shadow: 0 1px 1px rgba(0,0,0,.3);
+		}
+		.content {
+			background: #2e3128 url(img/bg.jpg) repeat 0 0;
+		}
+		.calc-list {
+		}
+		ul {
+		}
+
+		.calc-item {
+			position: relative;
+			border-bottom: 1px solid rgba(0,0,0,.5);
+			padding:20px;
+  			background-image: -webkit-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,.05));
+  			background-image:    -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,.05));
+  			background-image:      -o-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,.05));
+  			background-image:         linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.05));
+		}
+		.cur {
+			position: absolute;
+			top:20px;
+			left:20px;
+			color:#e7e7e7;
+			font-size: 1.6em;
+			line-height:1em;
+		}
+		.total {
+			position: absolute;
+			top:20px;
+			left:20px;
+			color:#fff;
+			font-size: 2em;
+			line-height:1em;
+		}
+		.value {
+			display:block;
+			color:#e7e7e7;
+			font-size: 1.6em;
+			line-height:1em;
+			margin: 0 0 .2em 60px;
+		}
+		.description {
+			color:#666;
+			font-size:1em;
+			line-height:1em;
+			display: block;
+			letter-spacing: -.02em;
+			margin-left: 60px;
+		}
+		/* total */
+		.calc-total {
+			position: relative;
+			border-top: 1px solid rgba(0,0,0,.8);
+			padding:20px;
+			background: #c3615c;
+			box-shadow: inset 0 0 30px 0 rgba(0,0,0,.5);
+		}
+		.calc-total .value {
+			font-size:2em;
+			font-weight: bolder;
+			color:#fff;
+			margin-left:100px;
+		}
+		nav li {
+			width: 50%;
+			float: left;
+			color: #FFF;
+			text-align: center;
+			color: #333;
+			border: none;
+			padding: 3% 0;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="global">
+		<div class="wrapper">
+
+			<header>TripCalc</header>
+			<!-- content -->
+			<section class="content">
+				<div class="calc-list">
+					<ul>
+						<li class="calc-item">
+							<div class="cur">USD</div>
+							<span class="value">370,00</span>
+							<span class="description">Local do pagamento</span>
+						</li>
+						<li class="calc-item">
+							<div class="cur">USD</div>
+							<span class="value">370,00</span>
+							<span class="description">Local do pagamento</span>
+						</li>
+						<li class="calc-item">
+							<div class="cur">USD</div>
+							<span class="value">370,00</span>
+							<span class="description">Local do pagamento</span>
+						</li>
+					</ul>
+				</div>
+				<div class="calc-total">
+					<div class="total">TOTAL:</div>
+					<span class="value">370,00</span>
+				</div>
+			</section>
+			<!-- / content -->
+
+			<nav class="nav">
+				<ul>
+					<li class="icos add">
+						Add
+					</li>
+					<li class="icos config">
+						Configuration
+					</li>
+				</ul>
+			</nav><!-- /nav -->
+
+		</div><!-- /wrapper -->
+	</div><!-- /global -->
+</body>
+</html>
