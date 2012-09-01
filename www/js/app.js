@@ -1,3 +1,19 @@
+/* Véi, foca no código
+
+
+        .---.
+       /o   o\
+    __(=  "  =)__
+     //\'-=-'/\
+        )   (_
+       /      `"=-._
+      /       \     ``"=.
+     /  /   \  \         `=..--.
+ ___/  /     \  \___      _,  , `\
+`-----' `""""`'-----``"""`  \  \_/
+                             `-`
+
+*/
 
 // The code below uses require.js, a module system for javscript:
 // http://requirejs.org/docs/api.html#define
@@ -74,6 +90,11 @@ define("app", function(require) {
     // expondo a função no window só pra brincar no console
     window.movePage = movePage;
 
+    $(function() {
+        pageEl.css({ 'height': heightWindow });
+        movePage(pageActive);
+    });
+
     // Hook up the installation button, feel free to customize how
     // this works
 
@@ -93,8 +114,6 @@ define("app", function(require) {
 
     $(function() {
         $('.install-btn').click(install);
-        pageEl.css({ 'height': heightWindow });
-        movePage(pageActive);
     });
 
     install.on('change', updateInstallButton);
