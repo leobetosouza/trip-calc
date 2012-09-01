@@ -89,6 +89,13 @@ define("app", function(require) {
     // expondo a função no window só pra brincar no console
     window.movePage = movePage;
 
+    /**
+     * Object to convert values based on currency rates
+     * Usage:
+     * Currency.init(function() {
+     *   Currency.getRate(value, currencyFrom, currencyTo);
+     * });
+     */
     var Currency = {
       //Rates are USD based
       rates: null,
