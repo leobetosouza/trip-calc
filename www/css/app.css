@@ -28,7 +28,10 @@ body {
 }
 .add { background: #fff; }
 .config { background: #0f0; }
-.preview { background: #00f; }
+.preview { position: relative; background: #00f; }
+.preview .content { position: relative; height: 75%; overflow-y: auto; overflow-x: hidden; }
+.preview .nav { height: 25%; }
+.preview .nav ul, .preview .nav li { height: 100%; }
 /*.controls { background: black; height: 50px; width: 100%; position: fixed; }
 .totalPrice { background: yellow; height: 50px; width: 100%; }*/
 
@@ -128,4 +131,7 @@ nav li {
   color: #000;
   font-size: 18px;
   text-decoration: none;
+}
+
+.add {
 }

@@ -167,4 +167,19 @@ define("app", function(require) {
         }, 8000);
     });
 
+
+    $(function(){
+      
+      $('.nav .add').on('click', function(e){
+        e.preventDefault();
+        movePage(1);
+      });
+
+      $('.nav .config').on('click', function(e){
+        e.preventDefault();
+        movePage(2);
+      });
+
+    });
+
 });
