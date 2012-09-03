@@ -1,58 +1,58 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
-	<meta charset="UTF-8">
-	<title></title>
+  <meta charset="UTF-8">
+  <title></title>
 </head>
 <body>
-	<script src="js/lib/jquery.js"></script>
-	<script>
-		TripCalc.getCountryData = function () {
-			
-			'use strict';
+  <script src="js/lib/jquery.js"></script>
+  <script>
+    TripCalc.getCountryData = function () {
+      
+      'use strict';
 
-			var baseUri = 'http://ws.geonames.org/';
-			var lastCountry = localStorage.getItem( 'country' );
+      var baseUri = 'http://ws.geonames.org/';
+      var lastCountry = localStorage.getItem( 'country' );
 
-			lastCountry = ( lastCountry ) ? JSON.parse( lastCountry ) : null;
-			
-			navigator.geolocation.getCurrentPosition( function ( position ) {
-				
-				var countryCodeUrl = baseUri + 'countryCode?type=JSON&lat=' +
-														 position.coords.latitude + '&lng=' +
-														 position.coords.longitude;
-    		var country = {};
+      lastCountry = ( lastCountry ) ? JSON.parse( lastCountry ) : null;
+      
+      navigator.geolocation.getCurrentPosition( function ( position ) {
+        
+        var countryCodeUrl = baseUri + 'countryCode?type=JSON&lat=' +
+                             position.coords.latitude + '&lng=' +
+                             position.coords.longitude;
+        var country = {};
 
-				$.getJSON( countryCodeUrl, function ( result ) {
+        $.getJSON( countryCodeUrl, function ( result ) {
 
-    			country[ 'name' ] = result.countryName;
+          country[ 'name' ] = result.countryName;
           country[ 'code' ] = result.countryCode;
           country[ 'currency' ] = null;
           
-					if ( !lastCountry || lastCountry[ 'code' ] !== country[ 'code' ] ||
-							 !lastCountry[ 'currency' ]) {
+          if ( !lastCountry || lastCountry[ 'code' ] !== country[ 'code' ] ||
+               !lastCountry[ 'currency' ]) {
 
-	          $.getJSON( baseUri + '/countryInfo?type=JSON&country=' +
-	          					 country[ 'code' ],
-	          					 function ( result ) {
+            $.getJSON( baseUri + '/countryInfo?type=JSON&country=' +
+                       country[ 'code' ],
+                       function ( result ) {
 
-          		if ( result[ 'geonames' ][0] ) {
-          		
-          			country[ 'currency' ] = result[ 'geonames' ][0][ 'currencyCode' ];
-          		
-          		}
+              if ( result[ 'geonames' ][0] ) {
+              
+                country[ 'currency' ] = result[ 'geonames' ][0][ 'currencyCode' ];
+              
+              }
 
-          		localStorage.setItem( 'country', JSON.stringify( country ) );
+              localStorage.setItem( 'country', JSON.stringify( country ) );
 
-          	});
+            });
 
-		      }
+          }
 
-				});
+        });
 
-	    });
+      });
 
-		}
-	</script>
+    }
+  </script>
 </body>
 </html>
